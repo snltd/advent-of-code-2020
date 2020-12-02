@@ -9,10 +9,6 @@ require_relative 'support/base'
 # the string. String offsets begin at 1!
 #
 class Advent0202 < Base
-  def problem
-    '0202'
-  end
-
   def solve
     processed_input.count { |item| valid?(item) }
   end

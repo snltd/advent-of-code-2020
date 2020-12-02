@@ -16,6 +16,10 @@ class Base
     @input = numeric_input? ? numeric(raw_data) : raw_data
   end
 
+  def problem
+    self.class.name.sub('Advent', '')
+  end
+
   # Turn something into a load of integers
   #
   def numeric(data)

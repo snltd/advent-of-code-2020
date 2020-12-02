@@ -5,10 +5,6 @@ require_relative 'support/base'
 # Problem 0102
 #
 class Advent0102 < Base
-  def problem
-    '0102'
-  end
-
   def solve
     numbers_which_sum_to(2020, input.to_i).reduce(:*)
   end

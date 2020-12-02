@@ -9,10 +9,6 @@ require_relative 'support/base'
 # must be in the range.
 #
 class Advent0201 < Base
-  def problem
-    '0201'
-  end
-
   def solve
     processed_input.count do |row|
       row[:range].include?(row[:password].count(row[:letter]))
