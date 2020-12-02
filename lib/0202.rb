@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require_relative 'base'
+require_relative 'support/base'
 
-# Problem 02_02
+# Problem 0202
 #
 # Each item of input looks like '1-3 a: abcde'. The fields are: two positions,
 # a letter, and a string. The letter must occur at ONE OF the two positions in
 # the string. String offsets begin at 1!
 #
-class Advent < Base
+class Advent0202 < Base
   def problem
-    '02_02'
+    '0202'
   end
 
   def solve

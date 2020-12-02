@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require_relative 'base'
+require_relative 'support/base'
 
-# Problem 01-02
+# Problem 0102
 #
-class Advent < Base
+class Advent0102 < Base
   def problem
-    '01_02'
+    '0102'
   end
 
   def solve
-    numbers_which_sum_to(2020, input).reduce(:*)
+    numbers_which_sum_to(2020, input.to_i).reduce(:*)
   end
 
   # This should be done recursively, but it's very late and I'm very tired.

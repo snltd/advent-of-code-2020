@@ -2,25 +2,18 @@
 
 require 'pathname'
 require_relative 'stdlib/array'
-
-STORED_INPUT_DIR = Pathname.new(__dir__).parent + 'input'
+require_relative 'input_loader'
 
 # Stuff needed by multiple problems
 #
 class Base
   attr_reader :input
 
-  def initialize(input = nil)
-    raw_data = input || stored_input
-    @input = numeric_input? ? numeric(raw_data) : raw_data
-  end
+  include InputLoader
 
-  # Load input data from disk
-  #
-  def stored_input
-    infile = STORED_INPUT_DIR + (problem.split('_'))[0]
-    infile = STORED_INPUT_DIR + problem unless infile.exist?
-    IO.read(infile).split("\n")
+  def initialize(input = nil)
+    raw_data = input || stored_input(STORED_INPUT_DIR)
+    @input = numeric_input? ? numeric(raw_data) : raw_data
   end
 
   # Turn something into a load of integers

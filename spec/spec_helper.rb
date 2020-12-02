@@ -2,21 +2,25 @@
 
 require 'pathname'
 require 'minitest/autorun'
+require_relative '../lib/support/input_loader'
+require_relative '../lib/support/problem_loader'
 
-PROBLEM_DIR = Pathname.new(__FILE__).dirname.parent + 'lib'
-SAMPLE_INPUT_DIR = Pathname.new(__FILE__).dirname + 'input'
-
-class BaseTest < MiniTest::Test
+module SpecHelper
   attr_reader :c
 
-  def import_problem_class
-    require PROBLEM_DIR + problem
+  include InputLoader
+  include ProblemLoader
+
+  def setup
+    import_problem_class
+    @c = problem_class.new(stored_input(SAMPLE_INPUT_DIR))
   end
 
-  def sample_input
-    infile = SAMPLE_INPUT_DIR + (problem.split('_'))[0]
-    infile = SAMPLE_INPUT_DIR + problem unless infile.exist?
+  def problem
+    self.class.name.sub('ProblemTest', '')
+  end
 
-    IO.read(infile).split("\n")
+  def test_example_input
+    assert_equal(sample_answer, c.solve)
   end
 end

@@ -4,12 +4,12 @@
 
 require_relative 'spec_helper'
 
-# Problem 0000
+# Problem 0201
 #
-class ProblemTest0000 < MiniTest::Test
+class ProblemTest0201 < MiniTest::Test
   include SpecHelper
 
   def sample_answer
-    123
+    2
   end
 end

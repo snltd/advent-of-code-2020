@@ -4,12 +4,10 @@
 
 require_relative 'spec_helper'
 
-# Problem 02_02
+# Problem 0202
 #
-class ProblemTest0202 < BaseTest
-  def problem
-    '02_02'
-  end
+class ProblemTest0202 < MiniTest::Test
+  include SpecHelper
 
   def sample_answer
     1
@@ -33,14 +31,5 @@ class ProblemTest0202 < BaseTest
     assert c.valid?(c.parse('1-3 a: abcde'))
     refute c.valid?(c.parse('1-3 b: cdefg'))
     refute c.valid?(c.parse('2-9 c: ccccccccc'))
-  end
-
-  def setup
-    import_problem_class
-    @c = Advent.new(sample_input)
-  end
-
-  def test_example_input
-    assert_equal(sample_answer, c.solve)
   end
 end

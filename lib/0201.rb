@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require_relative 'base'
+require_relative 'support/base'
 
-# Problem 02_01
+# Problem 0201
 #
 # Each item of input looks like '1-3 a: abcde'. The fields are a range, a
 # letter, and a string. The number of times the letter appears in the string
 # must be in the range.
 #
-class Advent < Base
+class Advent0201 < Base
   def problem
-    '02_01'
+    '0201'
   end
 
   def solve

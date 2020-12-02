@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require_relative 'base'
+require_relative 'support/base'
 
-# Problem xx-yy
+# Problem XXYY
 #
-class Advent < Base
+class AdventXXYY < Base
   def problem
-    'xx-yy'
+    'XXYY'
   end
 
   def solve
