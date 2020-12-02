@@ -6,7 +6,7 @@ require_relative 'base'
 #
 class Advent < Base
   def problem
-    '01-02'
+    '01_02'
   end
 
   def solve

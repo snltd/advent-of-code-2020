@@ -6,9 +6,9 @@ require_relative 'spec_helper'
 
 # Problem 01-01
 #
-class ProblemTest < BaseTest
+class ProblemTest0101 < BaseTest
   def problem
-    '01-01'
+    '01_01'
   end
 
   def sample_answer
