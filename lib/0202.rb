@@ -35,7 +35,7 @@ class Advent0202 < Base
       password: password }
   end
 
-  def numeric_input?
-    false
+  def input_style
+    :raw
   end
 end

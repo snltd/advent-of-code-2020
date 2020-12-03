@@ -8,12 +8,11 @@ require_relative '../lib/support/problem_loader'
 module SpecHelper
   attr_reader :c
 
-  include InputLoader
   include ProblemLoader
 
   def setup
     import_problem_class
-    @c = problem_class.new(stored_input(SAMPLE_INPUT_DIR))
+    @c = problem_class.new(SAMPLE_INPUT_DIR)
   end
 
   def problem

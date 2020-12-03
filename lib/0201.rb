@@ -25,7 +25,7 @@ class Advent0201 < Base
     end
   end
 
-  def numeric_input?
-    false
+  def input_style
+    :raw
   end
 end

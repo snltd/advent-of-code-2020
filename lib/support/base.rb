@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'pathname'
-require_relative 'stdlib/array'
 require_relative 'input_loader'
 
 # Stuff needed by multiple problems
@@ -9,27 +8,20 @@ require_relative 'input_loader'
 class Base
   attr_reader :input
 
-  include InputLoader
-
-  def initialize(input = nil)
-    raw_data = input || stored_input(STORED_INPUT_DIR)
-    @input = numeric_input? ? numeric(raw_data) : raw_data
+  def initialize(input_dir = STORED_INPUT_DIR)
+    @input = InputLoader.new(problem, input_dir).send(input_style)
   end
 
   def problem
     self.class.name.sub('Advent', '')
   end
 
-  # Turn something into a load of integers
+  # We'll assume the input to a problem is a list of integers. If it's not,
+  # and must be treated as a string, set a different input style in the
+  # calling class. The value must be a symbol which refers to a method in the
+  # InputLoader class
   #
-  def numeric(data)
-    data.to_i
-  end
-
-  # We'll assume the input to a problem is numeric. If it's not, and must be
-  # treated as a string, set this to false in the inheriting class
-  #
-  def numeric_input?
-    true
+  def input_style
+    :as_integers
   end
 end
