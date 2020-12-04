@@ -18,19 +18,23 @@ class InputLoader
   def stored_input(problem, dir)
     infile = dir + problem[0..1]
     infile = dir + problem unless infile.exist?
-    IO.read(infile).split("\n")
+    IO.read(infile).strip
+  end
+
+  def as_lines
+    raw.split("\n")
   end
 
   def as_integers
-    raw.to_i
+    as_lines.to_i
   end
 
   def as_raw_char_grid
-    raw.map { |r| r.split('') }
+    as_lines.map { |r| r.split('') }
   end
 
   def as_raw_grid
-    raw.map(&:split)
+    as_lines.map(&:split)
   end
 
   def as_raw_integer_grid
@@ -43,5 +47,11 @@ class InputLoader
 
   def as_integer_grid
     Grid.new(as_raw_integer_grid, {})
+  end
+
+  # @return [Array] plain text chunks, which were originally separated by
+  #   blank lines. (NOT newlines!)
+  def as_chunks
+    raw.split(/^\s*$/).compact.map(&:strip)
   end
 end

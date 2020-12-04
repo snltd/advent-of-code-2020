@@ -36,6 +36,6 @@ class Advent0202 < Base
   end
 
   def input_style
-    :raw
+    :as_lines
   end
 end

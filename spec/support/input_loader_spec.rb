@@ -12,7 +12,12 @@ TEST_INPUT_DIR = Pathname.new(__dir__) + 'resources'
 class TestInputLoader < MiniTest::Test
   def test_raw
     c = InputLoader.new('01', TEST_INPUT_DIR)
-    assert_equal(%w[3 5 7 9], c.raw)
+    assert_equal("3\n5\n7\n9", c.raw)
+  end
+
+  def test_as_lines
+    c = InputLoader.new('01', TEST_INPUT_DIR)
+    assert_equal(%w[3 5 7 9], c.as_lines)
   end
 
   def test_as_integers
@@ -62,6 +67,16 @@ class TestInputLoader < MiniTest::Test
       [[1, 2, 3],
        [4, 5, 6],
        [7, 8, 9]], c.as_raw_integer_grid
+    )
+  end
+
+  def test_as_chunks
+    c = InputLoader.new('05', TEST_INPUT_DIR)
+    assert_equal(
+      ["chunk 0 line 0\nchunk 0 line 1",
+       'chunk 1',
+       "chunk 2 line 0\nchunk 2 line 1",
+       'chunk 3'], c.as_chunks
     )
   end
 end
