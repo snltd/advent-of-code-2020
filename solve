@@ -2,25 +2,7 @@
 
 # frozen_string_literal: true
 
-require 'pathname'
-require_relative 'lib/support/problem_loader'
-
-# Solve a problem and print the solution
-#
-class Runner
-  attr_reader :problem
-
-  include ProblemLoader
-
-  def initialize(problem)
-    @problem = problem
-    import_problem_class
-  end
-
-  def solution
-    problem_class.new.solve
-  end
-end
+require_relative 'lib/support/runner'
 
 abort 'usage: run <problem>' if ARGV.size != 1
 
