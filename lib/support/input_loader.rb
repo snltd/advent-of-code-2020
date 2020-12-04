@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative 'grid'
 require_relative 'stdlib/array'
 
 # Load input data from disk. Automatically handles a single input (01) or
@@ -24,11 +25,23 @@ class InputLoader
     raw.to_i
   end
 
-  def as_grid
+  def as_raw_char_grid
+    raw.map { |r| r.split('') }
+  end
+
+  def as_raw_grid
     raw.map(&:split)
   end
 
+  def as_raw_integer_grid
+    as_raw_grid.map(&:to_i)
+  end
+
+  def as_grid
+    Grid.new(as_raw_grid, {})
+  end
+
   def as_integer_grid
-    as_grid.map(&:to_i)
+    Grid.new(as_raw_integer_grid, {})
   end
 end

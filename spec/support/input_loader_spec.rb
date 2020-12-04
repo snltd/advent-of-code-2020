@@ -30,19 +30,38 @@ class TestInputLoader < MiniTest::Test
 
   def test_as_grid
     c = InputLoader.new('0301', TEST_INPUT_DIR)
-    assert_equal(
-      [%w[a b c],
-       %w[d e f],
-       %w[g h i]], c.as_grid
-    )
+    assert_instance_of(Grid, c.as_grid)
   end
 
   def test_as_integer_grid
     c = InputLoader.new('0302', TEST_INPUT_DIR)
+    assert_instance_of(Grid, c.as_integer_grid)
+  end
+
+  def test_as_raw_char_grid
+    c = InputLoader.new('04', TEST_INPUT_DIR)
+    assert_equal(
+      [%w[a b c],
+       %w[d e f],
+       %w[g h i]], c.as_raw_char_grid
+    )
+  end
+
+  def test_as_raw_grid
+    c = InputLoader.new('0301', TEST_INPUT_DIR)
+    assert_equal(
+      [%w[a b c],
+       %w[d e f],
+       %w[g h i]], c.as_raw_grid
+    )
+  end
+
+  def test_as_raw_integer_grid
+    c = InputLoader.new('0302', TEST_INPUT_DIR)
     assert_equal(
       [[1, 2, 3],
        [4, 5, 6],
-       [7, 8, 9]], c.as_integer_grid
+       [7, 8, 9]], c.as_raw_integer_grid
     )
   end
 end

@@ -10,6 +10,6 @@ class ProblemTest0102 < MiniTest::Test
   include SpecHelper
 
   def sample_answer
-    241861950
+    241_861_950
   end
 end

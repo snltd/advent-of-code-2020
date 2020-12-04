@@ -7,7 +7,7 @@ require_relative 'constants'
 #
 module ProblemLoader
   def import_problem_class
-    require PROBLEM_DIR + problem
+    require PROBLEM_DIR + problem.to_s
   end
 
   def problem_class

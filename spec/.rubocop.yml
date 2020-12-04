@@ -1,0 +1,19 @@
+AllCops:
+  TargetRubyVersion: 2.7
+  NewCops: enable
+
+Style/IfUnlessModifier:
+  Enabled: false
+Style/StringConcatenation:
+  Enabled: false
+Style/OptionalBooleanParameter:
+  Enabled: false
+Style/NumericLiterals:
+  Enabled: false
+Layout/LineLength:
+  Max: 80
+
+Metrics/AbcSize:
+  Max: 64
+Metrics/MethodLength:
+  Max: 39
