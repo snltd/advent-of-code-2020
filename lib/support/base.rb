@@ -2,6 +2,7 @@
 
 require 'pathname'
 require_relative 'input_loader'
+require_relative 'constants'
 
 # Stuff needed by multiple problems
 #
