@@ -6,7 +6,7 @@ require_relative '0701'
 #
 class Advent0702 < Advent0701
   def solve
-    setup_bag_map
+    set_up_data_stores
 
     expand(wanted).size - 1
   end

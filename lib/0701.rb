@@ -12,21 +12,30 @@ class Advent0701 < Base
   end
 
   def solve
-    setup_bag_map
+    set_up_data_stores
 
-    bag_map.reject { |bag| bag == wanted }
-           .map { |bag, _how_many| expand(bag) }
-           .count { |e| e.include?(wanted) }
+    to_solve = bag_map.reject { |bag| bag == wanted }
+
+    expanded = to_solve.map do |bag, _how_many|
+      e = expand(bag)
+      @expanded[bag] = e
+      e
+    end
+
+    expanded.count { |e| e.include?(wanted) }
   end
 
-  def setup_bag_map
+  def set_up_data_stores
     @bag_map = input.map { |bag| process_bag(bag) }.to_h
+    @expanded = {} # cache things we've already worked out
   end
 
   def expand(bag)
     aggr = [bag]
 
     return aggr if bag == wanted || !bag_map.key?(bag)
+
+    return @expanded[bag] if @expanded.key?(bag)
 
     bag_map[bag].each do |colour, how_many|
       aggr += expand(colour) unless how_many.zero?
