@@ -85,6 +85,7 @@ class TestInputLoader < MiniTest::Test
     assert_equal(
       [[:nop, 0],
        [:acc, 3],
-       [:jmp, -3]], c.as_asm)
+       [:jmp, -3]], c.as_asm
+    )
   end
 end
