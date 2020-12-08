@@ -9,46 +9,35 @@ require_relative '../../lib/support/assembler'
 # the problem tests in the parent directory.
 #
 class AssemblerRuntimeTest < MiniTest::Test
-  attr_reader :c
-
-  def setup
-    @c = Assembler::Runtime.new
-  end
 
   # NOP should move on to the next instruction, not changing the accumulator
   def test_nop
-    assert_equal(0, c.pc)
-    assert_equal(0, c.acl)
-    c.nop(0)
-    assert_equal(1, c.pc)
+    c = Assembler::Runtime.new([[:nop, 0], [:nop, 0]])
+    c.run!
+    assert_equal(2, c.pc)
     assert_equal(0, c.acl)
   end
 
   # ACC should move on to the next instruction, and add the argument's
   # value to the accumulator
   def test_acc
-    assert_equal(0, c.pc)
-    assert_equal(0, c.acl)
-    c.acc(3)
-    assert_equal(1, c.pc)
-    assert_equal(3, c.acl)
-    c.acc(-4)
+    c = Assembler::Runtime.new([[:acc, 5], [:acc, -2]])
+    c.run!
     assert_equal(2, c.pc)
-    assert_equal(-1, c.acl)
+    assert_equal(3, c.acl)
   end
 
   # JMP should add the argument's value to the program counter, leaving the
   # accumulator unaffected
   #
   def test_jmp
-    assert_equal(0, c.pc)
-    assert_equal(0, c.acl)
-    c.jmp(3)
+    c = Assembler::Runtime.new([[:jmp, 2], [:acc, 1], [:acc, 2]])
+    c.run!
     assert_equal(3, c.pc)
-    assert_equal(0, c.acl)
+    assert_equal(2, c.acl)
   end
 
-  def test_loop_detector
+  def _test_loop_detector
     c = Assembler::Runtime.new([[:nop, 0], [:jmp, 0]], loop_detector: true)
     result = c.run!
 

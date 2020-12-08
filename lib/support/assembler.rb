@@ -24,6 +24,8 @@ module Assembler
       { accumulator: acl, completed: completed, error: error || nil }
     end
 
+    private
+
     # INSTRUCTION - increment the program counter only
     # @param _arg [ignored]
     def nop(_arg)
@@ -42,8 +44,6 @@ module Assembler
     def jmp(arg)
       @pc += arg
     end
-
-    private
 
     def execute_instruction(instruction)
       raise LoopDetected if @execlist.include?(pc)
