@@ -79,4 +79,12 @@ class TestInputLoader < MiniTest::Test
        'chunk 3'], c.as_chunks
     )
   end
+
+  def test_as_asm
+    c = InputLoader.new('08', TEST_INPUT_DIR)
+    assert_equal(
+      [[:nop, 0],
+       [:acc, 3],
+       [:jmp, -3]], c.as_asm)
+  end
 end

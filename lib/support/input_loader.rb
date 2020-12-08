@@ -49,6 +49,13 @@ class InputLoader
     Grid.new(as_raw_integer_grid, {})
   end
 
+  def as_asm
+    as_lines.map do |l|
+      instruction, arg = l.split
+      [instruction.to_sym, arg.to_i]
+    end
+  end
+
   # @return [Array] plain text chunks, which were originally separated by
   #   blank lines. (NOT newlines!)
   def as_chunks
