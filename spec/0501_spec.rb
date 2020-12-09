@@ -21,17 +21,3 @@ class ProblemTest0501 < MiniTest::Test
     assert_equal(820, c.seat_id('BBFFBBFRLL'))
   end
 end
-
-# Tests for the class which does the work
-#
-class BinaryPartitionTest < MiniTest::Test
-  def test_fb
-    c = BinaryPartition.new('FBFBBFF', 'B')
-    assert_equal(44, c.value)
-  end
-
-  def test_rl
-    c = BinaryPartition.new('RLR', 'R')
-    assert_equal(5, c.value)
-  end
-end
