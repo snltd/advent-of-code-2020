@@ -11,6 +11,7 @@ class Base
 
   def initialize(input_dir = STORED_INPUT_DIR)
     @input = InputLoader.new(problem, input_dir).send(input_style)
+    post_initialize if respond_to?(:post_initialize)
   end
 
   def problem

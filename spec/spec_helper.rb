@@ -13,6 +13,7 @@ module SpecHelper
   def setup
     import_problem_class
     @c = problem_class.new(SAMPLE_INPUT_DIR)
+    post_setup if respond_to?(:post_setup)
   end
 
   def problem
