@@ -4,6 +4,8 @@
 
 require_relative 'lib/support/runner'
 
-abort 'usage: run <problem>' if ARGV.size != 1
+unless ARGV.size == 1 && ARGV.first.match(/^[012]\d0[12]$/)
+  abort 'usage: run <problem>'
+end
 
 puts Runner.new(ARGV.first).solution
