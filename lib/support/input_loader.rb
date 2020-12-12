@@ -12,7 +12,7 @@ class InputLoader
   attr_reader :raw
 
   def initialize(problem, dir)
-    @raw = stored_input(problem, dir)
+    @raw = stored_input(problem.to_s, dir)
   end
 
   def stored_input(problem, dir)
