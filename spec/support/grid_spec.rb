@@ -6,7 +6,7 @@ require_relative '../../lib/support/grid'
 
 # Tests
 #
-class Test < MiniTest::Test
+class TestGrid < MiniTest::Test
   attr_reader :c
 
   def setup

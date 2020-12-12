@@ -8,7 +8,7 @@ require_relative '../../lib/support/assembler'
 # Test the guts of the assembler. The public interfaces are also exercised by
 # the problem tests in the parent directory.
 #
-class AssemblerRuntimeTest < MiniTest::Test
+class TestAssemblerRuntime < MiniTest::Test
   # NOP should move on to the next instruction, not changing the accumulator
   def test_nop
     c = Assembler::Runtime.new([[:nop, 0], [:nop, 0]])

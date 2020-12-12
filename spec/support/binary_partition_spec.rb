@@ -7,7 +7,7 @@ require_relative '../../lib/support/binary_partition'
 
 # Test the meat of Day 5's solutions
 #
-class BinaryPartitionTest < MiniTest::Test
+class TestBinaryPartition < MiniTest::Test
   def test_fb
     c = BinaryPartition.new('FBFBBFF', 'B')
     assert_equal(44, c.value)
