@@ -59,7 +59,7 @@ ANSWERS = {
   '2402': nil
 }.freeze
 
-class ProblemTest0000 < MiniTest::Test
+class TestAllAnswers < MiniTest::Test
   def test_answers
     ANSWERS.compact.each do |problem, answer|
       assert_equal answer, Runner.new(problem).solution

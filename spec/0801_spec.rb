@@ -7,7 +7,7 @@ require_relative '../lib/0801'
 
 # Problem 0801
 #
-class ProblemTest0801 < MiniTest::Test
+class TestAdvent0801 < MiniTest::Test
   include SpecHelper
 
   # This will test the "real" public interface of Assember::Runtime

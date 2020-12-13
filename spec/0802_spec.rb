@@ -6,7 +6,7 @@ require_relative 'spec_helper'
 
 # Problem 0802
 #
-class ProblemTest0802 < MiniTest::Test
+class TestAdvent0802 < MiniTest::Test
   include SpecHelper
 
   def sample_answer

@@ -7,7 +7,7 @@ require_relative '../lib/0501'
 
 # Problem 0501
 #
-class ProblemTest0501 < MiniTest::Test
+class TestAdvent0501 < MiniTest::Test
   attr_reader :c
 
   def setup

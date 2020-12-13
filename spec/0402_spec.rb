@@ -8,7 +8,7 @@ require_relative '../lib/0402'
 # Problem 0402. They don't give us a sample answer, just lots of little
 # examples, so the standard test we've used so far isn't a good fit.
 #
-class ProblemTest0402 < MiniTest::Test
+class TestAdvent0402 < MiniTest::Test
   attr_reader :c
 
   def setup

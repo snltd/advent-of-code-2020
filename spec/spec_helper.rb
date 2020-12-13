@@ -17,7 +17,7 @@ module SpecHelper
   end
 
   def problem
-    self.class.name.sub('ProblemTest', '')
+    self.class.name.sub('TestAdvent', '')
   end
 
   def test_example_input
