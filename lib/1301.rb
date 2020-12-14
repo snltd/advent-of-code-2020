@@ -6,9 +6,8 @@ require_relative 'support/base'
 #
 class Advent1301 < Base
   def solve
-    ts = input.first.to_i
-    ids = input.last.split(',').reject { |i| i == 'x' }.map(&:to_i)
-    solve_for(ts, ids)
+    solve_for(input.first.to_i,
+              input.last.split(',').reject { |i| i == 'x' }.map(&:to_i))
   end
 
   def solve_for(ts, ids)
