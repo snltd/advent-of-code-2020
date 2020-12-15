@@ -6,7 +6,8 @@ require_relative 'support/base'
 #
 class Advent1502 < Base
   def solve
-    solve_for(input.first, 30000000)
+    @target = 30_000_000
+    solve_for(input.first, @target)
   end
 
   def solve_for(input, stop_at)
@@ -23,11 +24,13 @@ class Advent1502 < Base
   end
 
   def setup_memo(numeric_input)
-    numeric_input[0..-2].map.with_index(1).to_h
+    numeric_input[0..-2].each.with_index(1).with_object([]) do |(n, i), a|
+      a[n.to_i] = i
+    end
   end
 
   def process(num, index)
-    next_num = @memo.key?(num) ? index - @memo[num] : 0
+    next_num = @memo[num].nil? ? 0 : index - @memo[num]
     @memo[num] = index
     next_num
   end

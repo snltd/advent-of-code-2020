@@ -15,9 +15,7 @@ class TestAdvent1502 < MiniTest::Test
   end
 
   def test_setup_memo
-    assert_equal({ '0' => 1,
-                   '3' => 2 },
-                 c.setup_memo(%w[0 3 6]))
+    assert_equal([1, nil, nil, 2], c.setup_memo(%w[0 3 6]))
   end
 
   def test_solve_for
