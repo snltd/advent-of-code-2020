@@ -6,7 +6,7 @@ require_relative 'support/base'
 #
 class Advent1501 < Base
   def solve
-    solve_for(input.first.split(',').map(&:to_i), 3000000)
+    solve_for(input.first.split(',').map(&:to_i), 2020)
   end
 
   def solve_for(list, stop_at)
