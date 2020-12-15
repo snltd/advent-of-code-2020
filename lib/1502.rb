@@ -5,10 +5,6 @@ require_relative 'support/base'
 # Problem 1502
 #
 class Advent1502 < Base
-  attr_reader :memo
-
-  @memo = {}
-
   def solve
     solve_for(input.first, 30000000)
   end
@@ -31,8 +27,8 @@ class Advent1502 < Base
   end
 
   def process(num, index)
-    next_num = memo.key?(num) ? index - memo[num] : 0
-    memo[num] = index
+    next_num = @memo.key?(num) ? index - @memo[num] : 0
+    @memo[num] = index
     next_num
   end
 
