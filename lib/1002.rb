@@ -26,7 +26,7 @@ class Advent1002 < Base
   #
   def diffs(list)
     list += [0, list.max + 3]
-    list.sort.each_cons(2).with_object([]) { |(a, b), aggr| aggr.<< b - a }
+    list.sort.each_cons(2).with_object([]) { |(a, b), aggr| aggr.<< (b - a) }
   end
 
   # Given a list of numbers like [3, 1, 1, 3, 1, 1], return a list of the
