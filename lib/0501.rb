@@ -13,7 +13,7 @@ class Advent0501 < Base
   def seat_id(pass)
     row = BinaryPartition.new(pass[0..6], 'B').value
     column = BinaryPartition.new(pass[7..10], 'R').value
-    row * 8 + column
+    (row * 8) + column
   end
 
   def input_style
