@@ -18,7 +18,7 @@ class InputLoader
   def stored_input(problem, dir)
     infile = dir + problem[0..1]
     infile = dir + problem unless infile.exist?
-    IO.read(infile).strip
+    File.read(infile).strip
   end
 
   def as_lines
@@ -30,7 +30,7 @@ class InputLoader
   end
 
   def as_raw_char_grid
-    as_lines.map { |r| r.split('') }
+    as_lines.map(&:chars)
   end
 
   def as_raw_grid

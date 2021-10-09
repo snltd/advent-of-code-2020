@@ -26,10 +26,10 @@ class TestSeatMap2 < MiniTest::Test
   end
 
   def test_occupied
-    c = SeatMap2.new(['###'.split(''),
-                      '.#.'.split(''),
-                      'LL.'.split(''),
-                      '.L#'.split('')])
+    c = SeatMap2.new(['###'.chars,
+                      '.#.'.chars,
+                      'LL.'.chars,
+                      '.L#'.chars])
 
     assert_equal(2, c.occupied(c.visible_from(1, 2)))
     assert_equal(2, c.occupied(c.visible_from(0, 0)))
@@ -37,15 +37,15 @@ class TestSeatMap2 < MiniTest::Test
   end
 
   def test_visible_from1
-    c = SeatMap2.new(['.......#.'.split(''),
-                      '...#.....'.split(''),
-                      '.#.......'.split(''),
-                      '.........'.split(''),
-                      '..#L....#'.split(''),
-                      '....#....'.split(''),
-                      '.........'.split(''),
-                      '#........'.split(''),
-                      '...#.....'.split('')])
+    c = SeatMap2.new(['.......#.'.chars,
+                      '...#.....'.chars,
+                      '.#.......'.chars,
+                      '.........'.chars,
+                      '..#L....#'.chars,
+                      '....#....'.chars,
+                      '.........'.chars,
+                      '#........'.chars,
+                      '...#.....'.chars])
 
     assert_equal(
       [[7, 0],
@@ -59,21 +59,21 @@ class TestSeatMap2 < MiniTest::Test
   end
 
   def test_visible_from2
-    c = SeatMap2.new(['.............'.split(''),
-                      '.L.L.#.#.#.#.'.split(''),
-                      '.............'.split('')])
+    c = SeatMap2.new(['.............'.chars,
+                      '.L.L.#.#.#.#.'.chars,
+                      '.............'.chars])
 
     assert_equal([[3, 1]], c.visible_from(1, 1))
   end
 
   def test_visible_from3
-    c = SeatMap2.new(['.##.##.'.split(''),
-                      '#.#.#.#'.split(''),
-                      '##...##'.split(''),
-                      '...L...'.split(''),
-                      '##...##'.split(''),
-                      '#.#.#.#'.split(''),
-                      '.##.##.'.split('')])
+    c = SeatMap2.new(['.##.##.'.chars,
+                      '#.#.#.#'.chars,
+                      '##...##'.chars,
+                      '...L...'.chars,
+                      '##...##'.chars,
+                      '#.#.#.#'.chars,
+                      '.##.##.'.chars])
 
     assert_empty(c.visible_from(3, 3))
   end
