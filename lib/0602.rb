@@ -15,7 +15,7 @@ class Advent0602 < Base
   end
 
   def all_answers(answers)
-    answers.gsub(/\s+/, '').split('').uniq
+    answers.gsub(/\s+/, '').chars.uniq
   end
 
   def input_style

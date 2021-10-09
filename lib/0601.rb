@@ -10,7 +10,7 @@ class Advent0601 < Base
   end
 
   def yeses(answers)
-    answers.gsub(/\s+/, '').split('').uniq.size
+    answers.gsub(/\s+/, '').chars.uniq.size
   end
 
   def input_style
