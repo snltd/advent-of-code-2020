@@ -64,7 +64,7 @@ class WaypointNavigator
     wx, wy = waypoint_pos
     sx, sy = ship_pos
 
-    @ship_pos = [sx + wx * magnitude, sy + wy * magnitude]
+    @ship_pos = [sx + (wx * magnitude), sy + (wy * magnitude)]
   end
 
   def go_l(degrees)

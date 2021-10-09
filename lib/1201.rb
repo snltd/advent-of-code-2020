@@ -68,7 +68,7 @@ class Navigator
   def go_f(magnitude)
     x, y = pos
     bx, by = bearing
-    @pos = [x + bx * magnitude, y + by * magnitude]
+    @pos = [x + (bx * magnitude), y + (by * magnitude)]
   end
 
   def go_l(degrees)
