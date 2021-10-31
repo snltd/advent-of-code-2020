@@ -61,4 +61,8 @@ class InputLoader
   def as_chunks
     raw.split(/^\s*$/).compact.map(&:strip)
   end
+
+  def as_blocks
+    raw.split(/\n\n/)
+  end
 end
