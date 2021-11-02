@@ -9,9 +9,9 @@ class Advent1302 < Base
     123
   end
 
-  def decoded(i)
-    i.split(',').map.with_index { |n, i| [i, n.to_i] }
-     .reject { |_a, b| b.zero? }
+  def decoded(input)
+    input.split(',').map.with_index { |n, i| [i, n.to_i] }
+         .reject { |_a, b| b.zero? }
   end
 
   def part2_again(times)
