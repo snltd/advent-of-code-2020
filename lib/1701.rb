@@ -34,12 +34,10 @@ class Advent1701 < Base
 
     actives.each do |c|
       an = (neighbours(c) & actives).count
-      new_actives.<< c if an == 2 || an == 3
+      new_actives.<< c if [2, 3].include?(an)
     end
 
-   all = all_cubes(actives)
-
-    (all - actives).each do |c|
+    (all_cubes(actives) - actives).each do |c|
       an = (neighbours(c) & actives).count
       new_actives.<< c if an == 3
     end
@@ -60,7 +58,7 @@ class Advent1701 < Base
   end
 
   def limits(actives)
-    0.upto(actives.first.size- 1).with_object([]) do |i, aggr|
+    0.upto(actives.first.size - 1).with_object([]) do |i, aggr|
       x = actives.map { |a| a[i] }
       aggr.<< Range.new(x.min - 1, x.max + 1).to_a
     end

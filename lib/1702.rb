@@ -12,15 +12,10 @@ class Advent1702 < Base
     actives = []
 
     input.each.with_index do |row, i|
-      row.each.with_index do |cell, j|
-        actives.<<([i, j, 0, 0]) if cell == '#'
-      end
+      row.each.with_index { |cell, j| actives.<<([i, j, 0, 0]) if cell == '#' }
     end.flatten.compact
 
-    6.times.with_index do |i|
-      puts "cycle #{i}"
-      actives = cycle(actives)
-    end
+    6.times { |_i| actives = cycle(actives) }
 
     actives.count
   end
@@ -38,14 +33,10 @@ class Advent1702 < Base
 
     actives.each do |c|
       an = (neighbours(c) & actives).size
-      new_actives.<< c if an == 2 || an == 3
+      new_actives.<< c if [2, 3].include?(an)
     end
 
-    all = all_cubes(actives)
-
-    puts all.size
-
-    (all - actives).each do |c|
+    (all_cubes(actives) - actives).each do |c|
       an = (neighbours(c) & actives).size
       new_actives.<< c if an == 3
     end
@@ -68,7 +59,7 @@ class Advent1702 < Base
   end
 
   def limits(actives)
-    0.upto(actives.first.size- 1).with_object([]) do |i, aggr|
+    0.upto(actives.first.size - 1).with_object([]) do |i, aggr|
       x = actives.map { |a| a[i] }
       aggr.<< Range.new(x.min - 1, x.max + 1).to_a
     end
